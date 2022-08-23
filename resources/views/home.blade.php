@@ -22,6 +22,18 @@
         <div class="p-3 border bg-light mt-3"> 100 Member <i class="fa fa-users"></i> </div>
 </div>
 
+<div class="col-3">
+        <div class="p-3 border bg-light mt-3"> 5 Pembeli <i class="fa fa-person"></i> </div>
+</div>
+
+<div class="col-3">
+        <div class="p-3 border bg-light mt-3"> 5 Pembelian <i class="fa fa-cart-shopping"></i> </div>
+</div>
+
+<div class="col-3">
+        <div class="p-3 border bg-light mt-3"> 5 Penjualan <i class="fa fa-basket-shopping"></i> </div>
+</div>
+
 </div>
 
   @endsection
