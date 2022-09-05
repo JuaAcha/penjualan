@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Kategori extends Model
 {
     use HasFactory;
+    
+    protected $table = 'kategori'; //ini ditambahkan saat tidak jamak dengan bahasa ingrris
+
+    protected $guarded = [];
 }
