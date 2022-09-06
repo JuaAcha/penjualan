@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    KategoriController
+    KategoriController,
+    BarangController
 };
 
 /*
@@ -20,9 +21,8 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/barang', function () {
-    return view('barang.index');
-});
+//route barang
+Route::resource('/barang', BarangController::class);
 
 //route kategori
 Route::resource('/kategori', KategoriController::class);

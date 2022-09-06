@@ -10,8 +10,8 @@ Barang
         <div class="card-title">
             <h5>Data Barang</h5>
 
-            <button class="btn btn-success btn-sm float-end" data-bs-toggle="modal"
-            data-bs-target="#modalTambah"><i class="fa fa-plus"></i></button>
+            <a class="btn btn-success btn-sm float-end" href="{{ route('barang.create') }}">
+            <i class="fa fa-plus"></i></a>
         </div>
     </div>
 
@@ -30,19 +30,21 @@ Barang
 </thead>
 
 <tbody>
+    @foreach ($barang as $item)
     <tr>
         <td>1</td>
-        <td>19</td>
-        <td>Katana Demon Slayer</td>
-        <td>5.000.000</td>
-        <td>3</td>
-        <td>14</td>
-        <td>18</td>
+        <td>{{$loop->iteration}}</td>
+        <td>{{$item->nama}}</td>
+        <td>{{$item->harga}}</td>
+        <td>{{$item->stock}}</td>
+        <td>{{$item->supplier_id}}</td>
+        <td>{{$item->kategori_id}}</td>
         <td>
             <a href="#" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i></a>
             <a href="#" class="btn btn-danger btn-sm"> <i class="fa-solid fa-trash"></i></a>
 </td>
 </tr>
+    @endforeach
 </tbody>
 </table>
 </div>
