@@ -41,13 +41,16 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'nama' => 'required|max:255',
+            'nama' => 'required|max:255|alpha',
             'harga' => 'required|numeric',
             'stock' => 'required|numeric|min:1',
             'supplier_id' => 'required',
             'kategori_id' => 'required'
         ]);
-        $barang = Barang::create($request->all());
+
+        // return $request;
+
+        Barang::create($request->all());
         return redirect('barang');
     }
 
@@ -68,9 +71,12 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang $barang)
+    public function edit($id)
     {
-        //
+       $b = Barang::find($id);
+       $supplier = Supplier::all();
+       $kategori = Kategori::all();
+       return view('barang.edit', compact('b', 'supplier', 'kategori'));
     }
 
     /**
@@ -82,7 +88,23 @@ class BarangController extends Controller
      */
     public function update(Request $request, Barang $barang)
     {
-        //
+        $validate = $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|numeric',
+            'stock' => 'required|numeric|min:1',
+            'supplier_id' => 'required',
+            'kategori_id' => 'required'
+        ]);
+
+        $barang->update([
+            'nama' => $request->nama,
+            'harga' => $request->harga,
+            'stock' => $request->stock,
+            'supplier_id' => $request->supplier_id,
+            'kategori_id' => $request->kategori_id,
+        ]);
+        
+        return redirect('barang');
     }
 
     /**
@@ -91,8 +113,11 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barang $barang)
+    public function destroy($id)
     {
-        //
+        $barang = Barang::find($id);
+        $barang->delete();
+
+        return redirect('barang');
     }
 }

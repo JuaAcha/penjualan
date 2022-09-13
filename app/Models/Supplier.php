@@ -12,4 +12,8 @@ class Supplier extends Model
     protected $table = 'supplier';
     
     protected $guarded = [];
+
+    public function barang(){
+        return $this->belongsToMany(Barang::class);
+    }
 }

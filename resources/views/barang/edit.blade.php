@@ -8,41 +8,42 @@
 <div class="card mt-3">
     <div class="card-header">
         <div class="card-title">
-            <h5>Tambah Barang</h5>
+            <h5>Edit Barang</h5>
         </div>
     </div>
     <div class="card-body">
-        <form action="{{ route('barang.store') }}" method="POST">
+        <form action="{{ route('barang.update', $b->id) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="form-group">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label for="nama">Nama Barang</label>
-                        <input type="text" name="nama" id="nama" value="{{ old('nama') }}" class="form-control @error('nama') is-invalid @enderror">
-                        @error('nama')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                    </div>
+            <div class="row">
+            <div class="col-lg-6">
+            <label for="nama">Nama Barang</label>
+            <input type="text" name="nama" id="nama" value="{{ $b->nama }}" class="form-control @error('nama') is-invalid @enderror">
+                @error('nama')
+                <div class="text-danger">
+                     {{ $message }}
+                </div>
+                @enderror
+                </div>
 
                     <div class="col-lg-6">
                         <label for="harga">Harga</label>
-                        <input type="text" name="harga" id="harga" value="{{ old('harga') }}" class="form-control @error('harga') is-invalid @enderror">
+                        <input type="text" name="harga" id="harga" value="{{ $b->harga }}" class="form-control @error('harga') is-invalid @enderror">
                         @error('harga')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-                </div>
+        </div>
                 
 
                 <div class="row">
                     <div class="col-lg-2">
                         <label for="stok">Stock</label>
-                        <input type="number" name="stock" id="stok" value="{{ old('stok') }}" class="form-control @error('stok') is-invalid @enderror">
-                        @error('stok')
+                        <input type="number" name="stock" id="stock" value="{{ $b->stock }}" class="form-control @error('stok') is-invalid @enderror">
+                        @error('stock')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -50,8 +51,8 @@
                     </div>  
                     <div class="col-lg-5">
                         <label for="supplier" class="form-label">Supplier</label>
-                        <select name="supplier_id" id="supplier_id" value="{{ old('supplier_id') }}" class="form-control @error('supplier_id') is-invalid @enderror">
-                            <option selected="">Pilih...</option>
+                        <select name="supplier_id" id="supplier_id" class="form-control @error('supplier_id') is-invalid @enderror">
+                        <option value="{{$b->supplier_id}}" selected>{{$b->supplier->nama}}</option>
                             @foreach ($supplier as $s)
                                 <option value="{{ $s->id }}">{{ $s->nama}}</option>
                             @endforeach
@@ -62,10 +63,11 @@
                             </div>
                         @enderror
                     </div>
+                    
                     <div class="col-lg-5">
                         <label for="kategori" class="form-label">Kategori</label>
-                        <select name="kategori_id" id="kategori_id" value="{{ old('kategori_id') }}" class="form-control @error('kategori_id') is-invalid @enderror">
-                            <option selected="">Pilih...</option>
+                        <select name="kategori_id" id="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
+                            <option value="{{$b->kategori_id}}" selected>{{$b->kategori->nama}}</option>
                             @foreach ($kategori as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama}}</option>
                             @endforeach
@@ -78,7 +80,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Simpan</button>
+                    <button type="submit" class="btn btn-warning">Update</button>
                 </div>    
             </div>    
         </form>
