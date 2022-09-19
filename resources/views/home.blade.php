@@ -1,70 +1,32 @@
 @extends('layout.app')
 
 @section('title')
-  Home
-  @endsection
+Home
+@endsection
 
-  @section('content')
-  <div class="row g-3 p-1 text-center">
-    <div class="col-4">
-    <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/barang"><h5>Barang</h5> <i class="fa fa-boxes"></i></a>
-        <br>
+@section('content')
+<div class="row g-2 text-center">
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$barang->count()}} Barang <i class="fa fa-boxes"></i>  </div>
     </div>
+
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$kategori->count()}} Kategori <i class="fa fa-tag"></i>  </div>
     </div>
-</div>
 
-<div class="row g-3 p-1 text-center">
-<div class="col-4">
-     <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/kategori"><h5>Kategori</h5> <i class="fa fa-tag"></i></a>
-        <br>
-     </div>
-</div>
-</div>
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$supplier->count()}} Supplier <i class="fa fa-truck"></i>  </div>
+    </div>
 
-<div class="row g-3 p-1 text-center">
-<div class="col-4">
-     <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/supplier"><h5>Supplier</h5> <i class="fa fa-truck"></i></a>
-        <br>
-     </div>
-</div>
-</div>
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$pembeli->count()}} Member <i class="fa fa-users"></i>  </div>
+    </div>
 
-<div class="row g-3 p-1 text-center">
-<div class="col-4">
-     <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/pembeli"><h5>Pembeli</h5> <i class="fa fa-person"></i></a>
-        <br>
-     </div>
-</div>
-</div>
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$pembelian->count()}} Pembelian <i class="fa fa-cart-shopping"></i>  </div>
+    </div>
 
-<div class="row g-3 p-1 text-center">
-<div class="col-4">
-     <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/pembelian"><h5>Pembelian</h5> <i class="fa fa-cart-shopping"></i></a>
-        <br>
-     </div>
-</div>
-</div>
-
-<div class="row g-3 p-1 text-center">
-<div class="col-4">
-     <div class="p-3 border bg-light mt-3">
-        <br>
-        <a class="nav-link" href="/penjualan"><h5>Penjualan</h5> <i class="fa fa-basket-shopping"></i></a>
-        <br>
-     </div>
-</div>
-</div>
-
-</div>
-
-  @endsection
+    <div class="col-3 text-dark">
+      <div class="p-3 border bg-warning mt-3">{{$penjualan->count()}} Penjualan <i class="fa fa-basket-shopping"></i>  </div>
+    </div>
+@endsection

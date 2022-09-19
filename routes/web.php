@@ -7,7 +7,8 @@ use App\Http\Controllers\{
     SupplierController,
     PembeliController,
     PembelianController,
-    PenjualanController
+    PenjualanController,
+    DashboardController
 };
 
 /*
@@ -21,9 +22,7 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 //route barang
 Route::resource('/barang', BarangController::class);
