@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     KategoriController,
     BarangController,
-    SupplierController
+    SupplierController,
+    PembeliController,
+    PembelianController
 };
 
 /*
@@ -37,13 +39,17 @@ Route::resource('/supplier', SupplierController::class);
 Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit']);
 Route::get('/supplier/{id}/hapus', [SupplierController::class, 'destroy']);
 
-Route::get('/pembeli', function () {
-    return view('pembeli.index');
-});
+//route Pembeli
+Route::resource('/pembeli',PembeliController::class);
+Route::get('/pembeli/{id}/hapus', [PembeliController::class, 'destroy']);
+Route::get('/pembeli/{id}/edit', [PembeliController::class, 'edit']);
 
-Route::get('/pembelian', function () {
-    return view('pembelian.index');
-});
+//Route Pembelian
+Route::resource('/pembelian', PembelianController::class);
+Route::get('/pembelian/edit/{id}', [PembelianController::class, 'edit']);
+Route::get('/pembelian/hapus/{id}', [PembelianController::class, 'destroy']);
+
+
 
 Route::get('/penjualan', function () {
     return view('penjualan.index');

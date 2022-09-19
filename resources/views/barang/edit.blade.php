@@ -52,7 +52,7 @@
                     <div class="col-lg-5">
                         <label for="supplier" class="form-label">Supplier</label>
                         <select name="supplier_id" id="supplier_id" class="form-control @error('supplier_id') is-invalid @enderror">
-                        <option value="{{$b->supplier_id}}" selected>{{$b->supplier->nama}}</option>
+                        <option value="" selected>{{! empty($item->supplier->nama) ? $item->supplier->nama : ''}}</option>
                             @foreach ($supplier as $s)
                                 <option value="{{ $s->id }}">{{ $s->nama}}</option>
                             @endforeach
@@ -67,7 +67,7 @@
                     <div class="col-lg-5">
                         <label for="kategori" class="form-label">Kategori</label>
                         <select name="kategori_id" id="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
-                            <option value="{{$b->kategori_id}}" selected>{{$b->kategori->nama}}</option>
+                            <option value="" selected>{{! empty($item->kategori->nama) ? $item->kategori->nama : ''}}</option>
                             @foreach ($kategori as $item)
                                 <option value="{{ $item->id }}">{{ $item->nama}}</option>
                             @endforeach
