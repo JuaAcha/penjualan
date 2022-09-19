@@ -41,9 +41,9 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'nama' => 'required|max:255|alpha',
+            'nama' => 'required|max:255',
             'harga' => 'required|numeric',
-            'stock' => 'required|numeric|min:1',
+            'stok' => 'required|numeric|min:1',
             'supplier_id' => 'required',
             'kategori_id' => 'required'
         ]);
@@ -91,7 +91,7 @@ class BarangController extends Controller
         $validate = $request->validate([
             'nama' => 'required|max:255',
             'harga' => 'required|numeric',
-            'stock' => 'required|numeric|min:1',
+            'stok' => 'required|numeric|min:1',
             'supplier_id' => 'required',
             'kategori_id' => 'required'
         ]);
@@ -99,7 +99,7 @@ class BarangController extends Controller
         $barang->update([
             'nama' => $request->nama,
             'harga' => $request->harga,
-            'stock' => $request->stock,
+            'stok' => $request->stock,
             'supplier_id' => $request->supplier_id,
             'kategori_id' => $request->kategori_id,
         ]);

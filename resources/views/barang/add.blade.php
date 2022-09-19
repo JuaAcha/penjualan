@@ -40,8 +40,8 @@
 
                 <div class="row">
                     <div class="col-lg-2">
-                        <label for="stok">Stock</label>
-                        <input type="number" name="stock" id="stok" value="{{ old('stok') }}" class="form-control @error('stok') is-invalid @enderror">
+                        <label for="stok">Stok</label>
+                        <input type="number" name="stok" id="stok" value="{{ old('stok') }}" class="form-control @error('stok') is-invalid @enderror">
                         @error('stok')
                             <div class="text-danger">
                                 {{ $message }}

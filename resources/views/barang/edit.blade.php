@@ -41,9 +41,9 @@
 
                 <div class="row">
                     <div class="col-lg-2">
-                        <label for="stok">Stock</label>
-                        <input type="number" name="stock" id="stock" value="{{ $b->stock }}" class="form-control @error('stok') is-invalid @enderror">
-                        @error('stock')
+                        <label for="stok">Stok</label>
+                        <input type="number" name="stok" id="stok" value="{{ $b->stok }}" class="form-control @error('stok') is-invalid @enderror">
+                        @error('stok')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>

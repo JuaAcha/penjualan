@@ -118,7 +118,7 @@ class PembelianController extends Controller
 
         $id_barang = $request->barang_id;
         $barang = Barang::find($id_barang);
-        $barang->stck += $request->jumlah;
+        $barang->stok += $request->jumlah;
         $barang->update();
 
         return redirect('pembelian');
